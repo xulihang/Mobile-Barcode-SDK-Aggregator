@@ -7,6 +7,7 @@
 
 import SwiftUI
 import DynamsoftBarcodeReader
+import SwiftyJSON
 
 struct ContentView: View {
     @State private var remoteImage : UIImage? = nil
@@ -37,20 +38,23 @@ struct ContentView: View {
     }
     
     func decode() async{
-        let barcodeReader = Aggregator(name: "AppleVision")
+        let barcodeReader = Aggregator(name: "MLKit")
         let results:NSArray = await barcodeReader.decode(image: remoteImage!)
         print(results.count)
         if results.count>0{
             let result: NSDictionary = results[0] as! NSDictionary
             print(result["barcodeText"] ?? "")
+            let json = JSON(results)
+            let representation = json.rawString()
+            print(representation!)
         }
     }
     
     func buttonPressed() async{
         print("pressed")
         self.status="Connected"
-        self.currentImageURL="http://192.168.8.65:5111/session/658840b94c2a11ecba69e84e068e29b8/image/DMX2a.jpg"
-        fetchRemoteImage()
+        //self.currentImageURL="http://192.168.8.65:5111/session/658840b94c2a11ecba69e84e068e29b8/image/DMX2a.jpg"
+        //fetchRemoteImage()
         await decode()
     }
     

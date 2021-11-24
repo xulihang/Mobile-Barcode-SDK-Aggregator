@@ -8,4 +8,5 @@ target 'barcodesdkaggregator' do
   # Pods for barcodesdkaggregator
   pod 'DynamsoftBarcodeReader'
   pod 'GoogleMLKit/BarcodeScanning', '2.3.0'
+  pod 'SwiftyJSON', '~> 4.0'
 end
