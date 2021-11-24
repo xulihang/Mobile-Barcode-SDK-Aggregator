@@ -37,18 +37,20 @@ class AppleVision:Reader{
         guard let results = results else {
             return outResults
           }
+        let width = image.size.width
+        let height = image.size.height
         for result in results{
             let subDic = NSMutableDictionary()
             subDic.setObject(result.payloadStringValue ?? "", forKey: "barcodeText" as NSCopying)
             subDic.setObject(result.symbology, forKey: "barcodeFormat" as NSCopying)
-            subDic.setObject(result.topLeft.x, forKey: "x1" as NSCopying)
-            subDic.setObject(result.topLeft.y, forKey: "y1" as NSCopying)
-            subDic.setObject(result.topRight.x, forKey: "x2" as NSCopying)
-            subDic.setObject(result.topRight.y, forKey: "y2" as NSCopying)
-            subDic.setObject(result.bottomRight.x, forKey: "x3" as NSCopying)
-            subDic.setObject(result.bottomRight.y, forKey: "y3" as NSCopying)
-            subDic.setObject(result.bottomLeft.x, forKey: "x4" as NSCopying)
-            subDic.setObject(result.bottomLeft.y, forKey: "y4" as NSCopying)
+            subDic.setObject(result.topLeft.x*width, forKey: "x1" as NSCopying)
+            subDic.setObject(result.topLeft.y*height, forKey: "y1" as NSCopying)
+            subDic.setObject(result.topRight.x*width, forKey: "x2" as NSCopying)
+            subDic.setObject(result.topRight.y*height, forKey: "y2" as NSCopying)
+            subDic.setObject(result.bottomRight.x*width, forKey: "x3" as NSCopying)
+            subDic.setObject(result.bottomRight.y*height, forKey: "y3" as NSCopying)
+            subDic.setObject(result.bottomLeft.x*width, forKey: "x4" as NSCopying)
+            subDic.setObject(result.bottomLeft.y*height, forKey: "y4" as NSCopying)
             outResults.add(subDic)
         }
         return outResults
