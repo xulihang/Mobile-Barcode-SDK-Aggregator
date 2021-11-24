@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import UIKit
+
+protocol Reader {
+   func decode (image:UIImage) async ->NSArray
+}

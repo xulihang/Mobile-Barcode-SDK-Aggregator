@@ -7,13 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BECEDB68274DDC8D003A8578 /* Aggregator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECEDB67274DDC8D003A8578 /* Aggregator.swift */; };
+		BECEDB6A274DDE40003A8578 /* DBR.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECEDB69274DDE40003A8578 /* DBR.swift */; };
+		BECEDB70274DE774003A8578 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECEDB6F274DE774003A8578 /* Reader.swift */; };
+		BECEDB72274E00A9003A8578 /* MLKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECEDB71274E00A9003A8578 /* MLKit.swift */; };
+		BECEDB74274E09B1003A8578 /* AppleVision.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECEDB73274E09B1003A8578 /* AppleVision.swift */; };
 		BEE61DAE274CE6E800F619B7 /* barcodesdkaggregatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE61DAD274CE6E800F619B7 /* barcodesdkaggregatorApp.swift */; };
 		BEE61DB0274CE6E800F619B7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE61DAF274CE6E800F619B7 /* ContentView.swift */; };
 		BEE61DB2274CE6EA00F619B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE61DB1274CE6EA00F619B7 /* Assets.xcassets */; };
 		BEE61DB5274CE6EA00F619B7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE61DB4274CE6EA00F619B7 /* Preview Assets.xcassets */; };
+		E9CD194A16F3F8C4D6632E87 /* Pods_barcodesdkaggregator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0D5CB3D0F2DECAC588DD23 /* Pods_barcodesdkaggregator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		88024473C72C048497CFCE79 /* Pods-barcodesdkaggregator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-barcodesdkaggregator.debug.xcconfig"; path = "Target Support Files/Pods-barcodesdkaggregator/Pods-barcodesdkaggregator.debug.xcconfig"; sourceTree = "<group>"; };
+		8D927D8FBF903CBAD3320B87 /* Pods-barcodesdkaggregator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-barcodesdkaggregator.release.xcconfig"; path = "Target Support Files/Pods-barcodesdkaggregator/Pods-barcodesdkaggregator.release.xcconfig"; sourceTree = "<group>"; };
+		BC0D5CB3D0F2DECAC588DD23 /* Pods_barcodesdkaggregator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_barcodesdkaggregator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BECEDB67274DDC8D003A8578 /* Aggregator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aggregator.swift; sourceTree = "<group>"; };
+		BECEDB69274DDE40003A8578 /* DBR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBR.swift; sourceTree = "<group>"; };
+		BECEDB6F274DE774003A8578 /* Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
+		BECEDB71274E00A9003A8578 /* MLKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLKit.swift; sourceTree = "<group>"; };
+		BECEDB73274E09B1003A8578 /* AppleVision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleVision.swift; sourceTree = "<group>"; };
 		BEE61DAA274CE6E800F619B7 /* barcodesdkaggregator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = barcodesdkaggregator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE61DAD274CE6E800F619B7 /* barcodesdkaggregatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barcodesdkaggregatorApp.swift; sourceTree = "<group>"; };
 		BEE61DAF274CE6E800F619B7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,17 +40,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9CD194A16F3F8C4D6632E87 /* Pods_barcodesdkaggregator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C7458D124CA98B5B0DC6ED6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D5CB3D0F2DECAC588DD23 /* Pods_barcodesdkaggregator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5CC8A21B94E5C1CFD7EDE560 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				88024473C72C048497CFCE79 /* Pods-barcodesdkaggregator.debug.xcconfig */,
+				8D927D8FBF903CBAD3320B87 /* Pods-barcodesdkaggregator.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BEE61DA1274CE6E800F619B7 = {
 			isa = PBXGroup;
 			children = (
 				BEE61DAC274CE6E800F619B7 /* barcodesdkaggregator */,
 				BEE61DAB274CE6E800F619B7 /* Products */,
+				5CC8A21B94E5C1CFD7EDE560 /* Pods */,
+				5C7458D124CA98B5B0DC6ED6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +89,11 @@
 				BEE61DAF274CE6E800F619B7 /* ContentView.swift */,
 				BEE61DB1274CE6EA00F619B7 /* Assets.xcassets */,
 				BEE61DB3274CE6EA00F619B7 /* Preview Content */,
+				BECEDB67274DDC8D003A8578 /* Aggregator.swift */,
+				BECEDB69274DDE40003A8578 /* DBR.swift */,
+				BECEDB6F274DE774003A8578 /* Reader.swift */,
+				BECEDB71274E00A9003A8578 /* MLKit.swift */,
+				BECEDB73274E09B1003A8578 /* AppleVision.swift */,
 			);
 			path = barcodesdkaggregator;
 			sourceTree = "<group>";
@@ -74,9 +113,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEE61DB8274CE6EA00F619B7 /* Build configuration list for PBXNativeTarget "barcodesdkaggregator" */;
 			buildPhases = (
+				B21C701D00F729679BDBD715 /* [CP] Check Pods Manifest.lock */,
 				BEE61DA6274CE6E800F619B7 /* Sources */,
 				BEE61DA7274CE6E800F619B7 /* Frameworks */,
 				BEE61DA8274CE6E800F619B7 /* Resources */,
+				2A3C82FF057A261BEB646907 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,13 +173,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2A3C82FF057A261BEB646907 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-barcodesdkaggregator/Pods-barcodesdkaggregator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-barcodesdkaggregator/Pods-barcodesdkaggregator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-barcodesdkaggregator/Pods-barcodesdkaggregator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B21C701D00F729679BDBD715 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-barcodesdkaggregator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BEE61DA6274CE6E800F619B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BECEDB6A274DDE40003A8578 /* DBR.swift in Sources */,
+				BECEDB72274E00A9003A8578 /* MLKit.swift in Sources */,
+				BECEDB68274DDC8D003A8578 /* Aggregator.swift in Sources */,
+				BECEDB70274DE774003A8578 /* Reader.swift in Sources */,
 				BEE61DB0274CE6E800F619B7 /* ContentView.swift in Sources */,
 				BEE61DAE274CE6E800F619B7 /* barcodesdkaggregatorApp.swift in Sources */,
+				BECEDB74274E09B1003A8578 /* AppleVision.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,13 +351,14 @@
 		};
 		BEE61DB9274CE6EA00F619B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88024473C72C048497CFCE79 /* Pods-barcodesdkaggregator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"barcodesdkaggregator/Preview Content\"";
-				DEVELOPMENT_TEAM = M6ARZB9W3T;
+				DEVELOPMENT_TEAM = DD4V7U64L4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -282,7 +371,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.xulihang.barcodesdkaggregator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xulihang.barcodeaggregator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -292,13 +381,14 @@
 		};
 		BEE61DBA274CE6EA00F619B7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D927D8FBF903CBAD3320B87 /* Pods-barcodesdkaggregator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"barcodesdkaggregator/Preview Content\"";
-				DEVELOPMENT_TEAM = M6ARZB9W3T;
+				DEVELOPMENT_TEAM = DD4V7U64L4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -311,7 +401,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.xulihang.barcodesdkaggregator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xulihang.barcodeaggregator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
