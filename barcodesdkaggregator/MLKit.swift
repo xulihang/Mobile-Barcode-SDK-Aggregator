@@ -28,7 +28,7 @@ class MLKit:Reader{
                 let subDic = NSMutableDictionary()
                 let points = barcode.cornerPoints
                 subDic.setObject(barcode.displayValue ?? "", forKey: "barcodeText" as NSCopying)
-                subDic.setObject(barcode.format, forKey: "barcodeFormat" as NSCopying)
+                subDic.setObject(getFormatName(rawValue: barcode.format.rawValue), forKey: "barcodeFormat" as NSCopying)
                 subDic.setObject(Int(points?[0].cgPointValue.x ?? 0), forKey: "x1" as NSCopying)
                 subDic.setObject(Int(points?[0].cgPointValue.y ?? 0), forKey: "y1" as NSCopying)
                 subDic.setObject(Int(points?[1].cgPointValue.x ?? 0), forKey: "x2" as NSCopying)
@@ -44,6 +44,19 @@ class MLKit:Reader{
         }
        
         return outResults
+    }
+    
+    func getFormatName(rawValue:Int)->String{
+        var format = ""
+        if rawValue == BarcodeFormat.dataMatrix.rawValue {
+            format = "DataMatrix"
+        } else if rawValue == BarcodeFormat.qrCode.rawValue {
+            format = "QRCODE"
+        } else if rawValue == BarcodeFormat.EAN13.rawValue {
+            format = "EAN13"
+        }
+        return format
+                
     }
     
 }
