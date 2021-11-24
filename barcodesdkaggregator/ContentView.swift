@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var remoteImage : UIImage? = nil
     let placeholderOne = UIImage(named: "dynamsoft")
     @State var status = "Not connected."
+    @State var json = ""
     @State var ip: String = "192.168.8.65"
     @State var currentImageURL = "http://192.168.8.65:5111/session/abc7b55641cf11eca240e84e068e29b8/image/QR1a.jpg"
     var body: some View {
@@ -29,11 +30,14 @@ struct ContentView: View {
             }
             Text(status)
             Image(uiImage: remoteImage ?? placeholderOne!)
+                .resizable()
+                .aspectRatio((remoteImage ?? placeholderOne!).size, contentMode: .fit)
                 .onAppear(perform: fetchRemoteImage)
+            Text(json)
             
         }.frame(maxWidth: .infinity, // Full Screen Width
                 maxHeight: .infinity, // Full Screen Height
-                alignment: .top) // Align To top
+                alignment: .topLeading) // Align To top
         
     }
     
@@ -45,16 +49,21 @@ struct ContentView: View {
             let result: NSDictionary = results[0] as! NSDictionary
             print(result["barcodeText"] ?? "")
             let json = JSON(results)
-            let representation = json.rawString()
+
+            let representation = json.rawString(options: [])
             print(representation!)
+            self.json = representation ?? ""
+
+        
+            
         }
     }
     
     func buttonPressed() async{
         print("pressed")
         self.status="Connected"
-        //self.currentImageURL="http://192.168.8.65:5111/session/658840b94c2a11ecba69e84e068e29b8/image/DMX2a.jpg"
-        //fetchRemoteImage()
+        self.currentImageURL="http://192.168.8.65:5111/session/658840b94c2a11ecba69e84e068e29b8/image/DMX2a.jpg"
+        fetchRemoteImage()
         await decode()
     }
     
