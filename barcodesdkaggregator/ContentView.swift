@@ -16,7 +16,9 @@ struct ContentView: View {
     @State var json = ""
     @State private var selectedSDK = Aggregator.mlKit
     @State var currentImageURL = "http://192.168.8.65:5111/session/abc7b55641cf11eca240e84e068e29b8/image/QR1a.jpg"
+    @State private var showAlert = false
     var body: some View {
+        Spacer()
         VStack{
             HStack{
                 Text("Selected SDK: ")
@@ -28,18 +30,29 @@ struct ContentView: View {
                     switchSDK()
                 }
             }
-            
+
+            TextField("Image URL", text: $currentImageURL)
             Button("Local Test"){
                 Task  {
                     await buttonPressed()
                 }
+            }.alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("No barcodes found"),
+                    message: Text("Try to decode with another SDK.")
+                )
             }
+
+            
             Text(status)
             Image(uiImage: remoteImage ?? placeholderOne!)
                 .resizable()
                 .aspectRatio((remoteImage ?? placeholderOne!).size, contentMode: .fit)
                 .onAppear(perform: fetchRemoteImage)
-            Text(json)
+            ScrollView(.vertical) {
+                Text(json)
+            }
+            
             
         }.frame(maxWidth: .infinity, // Full Screen Width
                 maxHeight: .infinity, // Full Screen Height
@@ -68,13 +81,13 @@ struct ContentView: View {
             let representation = json.rawString(options: [])
             print(representation!)
             self.json = representation ?? ""
+        }else{
+            showAlert = true
         }
     }
     
     func buttonPressed() async{
         print("pressed")
-        self.status="Connected"
-        self.currentImageURL="http://192.168.8.65:5111/session/658840b94c2a11ecba69e84e068e29b8/image/DMX2a.jpg"
         fetchRemoteImage()
         await decode()
     }
