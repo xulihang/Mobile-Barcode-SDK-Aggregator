@@ -8,9 +8,17 @@
 import Foundation
 import UIKit
 
-class Aggregator {
+class Aggregator:ObservableObject {
     private var barcodeReader:Reader? = nil
+    public var name:String = ""
+    public static let dbr:String = "DBR"
+    public static let mlKit:String = "MLKit"
+    public static let appleVision:String = "AppleVision"
     init(name:String) {
+        switchSDK(name: name)
+    }
+    
+    func switchSDK(name:String){
         if name == "DBR"{
             barcodeReader = DBR()
         }else if name == "MLKit" {
@@ -18,6 +26,7 @@ class Aggregator {
         }else if name == "AppleVision" {
             barcodeReader = AppleVision()
         }
+        self.name = name
     }
     
     func decode(image:UIImage) async ->NSArray{

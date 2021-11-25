@@ -6,24 +6,30 @@
 //
 
 import SwiftUI
-import DynamsoftBarcodeReader
 import SwiftyJSON
 
 struct ContentView: View {
+    @ObservedObject private var barcodeReader:Aggregator = Aggregator(name: "MLKit")
     @State private var remoteImage : UIImage? = nil
     let placeholderOne = UIImage(named: "dynamsoft")
     @State var status = "Not connected."
     @State var json = ""
-    @State var ip: String = "192.168.8.65"
+    @State private var selectedSDK = Aggregator.mlKit
     @State var currentImageURL = "http://192.168.8.65:5111/session/abc7b55641cf11eca240e84e068e29b8/image/QR1a.jpg"
     var body: some View {
         VStack{
-            HStack(alignment: .center) {
-                Text("Server IP:")
-                TextField("IP address", text: $ip)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-            }.padding()
-            Button("Connect"){
+            HStack{
+                Text("Selected SDK: ")
+                Picker("SDK", selection: $selectedSDK) {
+                    Text("DBR").tag(Aggregator.dbr)
+                    Text("Apple Vision").tag(Aggregator.appleVision)
+                    Text("MLKit").tag(Aggregator.mlKit)
+                }.onChange(of: selectedSDK) { newValue in
+                    switchSDK()
+                }
+            }
+            
+            Button("Local Test"){
                 Task  {
                     await buttonPressed()
                 }
@@ -38,11 +44,20 @@ struct ContentView: View {
         }.frame(maxWidth: .infinity, // Full Screen Width
                 maxHeight: .infinity, // Full Screen Height
                 alignment: .topLeading) // Align To top
+            .onAppear(perform: onViewLoaded)
+        
+    }
+    
+    func switchSDK(){
+        barcodeReader.switchSDK(name: selectedSDK)
+    }
+    
+    func onViewLoaded(){
         
     }
     
     func decode() async{
-        let barcodeReader = Aggregator(name: "MLKit")
+        
         let results:NSArray = await barcodeReader.decode(image: remoteImage!)
         print(results.count)
         if results.count>0{
@@ -53,9 +68,6 @@ struct ContentView: View {
             let representation = json.rawString(options: [])
             print(representation!)
             self.json = representation ?? ""
-
-        
-            
         }
     }
     
