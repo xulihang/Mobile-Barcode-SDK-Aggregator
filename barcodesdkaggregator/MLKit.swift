@@ -13,7 +13,7 @@ import MLKitVision
 class MLKit:Reader{
     var barcodeScanner: BarcodeScanner
     init(){
-        let format = MLKitBarcodeScanning.BarcodeFormat.all
+        let format = MLKitBarcodeScanning.BarcodeFormat.dataMatrix
         let barcodeOptions = BarcodeScannerOptions(formats: format)
         barcodeScanner = BarcodeScanner.barcodeScanner(options: barcodeOptions)
     }

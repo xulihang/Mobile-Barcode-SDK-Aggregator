@@ -26,7 +26,7 @@ class AppleVision:Reader{
         let requestHandler = VNImageRequestHandler(cgImage: image.cgImage!, orientation: CGImagePropertyOrientationForUIImageOrientation(uiOrientation: image.imageOrientation))
         
         let barcodeRequest = VNDetectBarcodesRequest()
-        barcodeRequest.symbologies = [.dataMatrix,.qr]
+        barcodeRequest.symbologies = [.dataMatrix]
         do {
             try requestHandler.perform([barcodeRequest])
         } catch {
