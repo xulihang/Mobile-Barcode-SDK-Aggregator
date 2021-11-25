@@ -31,11 +31,12 @@ class Server:ObservableObject{
                     let imageBase64 = json["base64"]
                     print(self.barcodeReader.name)
                     let imageData = Data(base64Encoded: imageBase64.rawString() ?? "", options: .ignoreUnknownCharacters)
-                    self.currentImage = UIImage(data: imageData!)!
+                    let image = UIImage(data: imageData!)!
+                    self.currentImage = image.copy() as! UIImage
                     Task() {
                         do {
                             let startTime = Date.now.timeIntervalSince1970
-                            let results = await self.barcodeReader.decode(image: self.currentImage)
+                            let results = await self.barcodeReader.decode(image: image)
                             let endTime = Date.now.timeIntervalSince1970
                             
                             let elapsedTime = Int((endTime - startTime)*1000)

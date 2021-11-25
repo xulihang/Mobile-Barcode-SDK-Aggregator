@@ -22,7 +22,9 @@ class AppleVision:Reader{
         //        let barcode = result as? VNBarcodeObservation
         //    }
         //}
-        let requestHandler = VNImageRequestHandler(cgImage: image.cgImage!)
+        
+        let requestHandler = VNImageRequestHandler(cgImage: image.cgImage!, orientation: CGImagePropertyOrientationForUIImageOrientation(uiOrientation: image.imageOrientation))
+        
         let barcodeRequest = VNDetectBarcodesRequest()
         barcodeRequest.symbologies = [.dataMatrix,.qr]
         do {
@@ -41,6 +43,7 @@ class AppleVision:Reader{
         let height = image.size.height
         for result in results{
             let subDic = NSMutableDictionary()
+            
             subDic.setObject(result.payloadStringValue ?? "", forKey: "barcodeText" as NSCopying)
             subDic.setObject(result.symbology, forKey: "barcodeFormat" as NSCopying)
             subDic.setObject(Int(result.topLeft.x*width), forKey: "x1" as NSCopying)
@@ -54,5 +57,20 @@ class AppleVision:Reader{
             outResults.add(subDic)
         }
         return outResults
+    }
+    
+    func CGImagePropertyOrientationForUIImageOrientation(uiOrientation:UIImage.Orientation) -> CGImagePropertyOrientation {
+        switch (uiOrientation) {
+            case UIImage.Orientation.up: return CGImagePropertyOrientation.up;
+            case UIImage.Orientation.down: return CGImagePropertyOrientation.down;
+            case UIImage.Orientation.left: return CGImagePropertyOrientation.left;
+            case UIImage.Orientation.right: return CGImagePropertyOrientation.right;
+            case UIImage.Orientation.upMirrored: return CGImagePropertyOrientation.upMirrored;
+            case UIImage.Orientation.downMirrored: return CGImagePropertyOrientation.downMirrored;
+            case UIImage.Orientation.leftMirrored: return CGImagePropertyOrientation.leftMirrored;
+            case UIImage.Orientation.rightMirrored: return CGImagePropertyOrientation.rightMirrored;
+        @unknown default:
+            return CGImagePropertyOrientation.up
+        }
     }
 }

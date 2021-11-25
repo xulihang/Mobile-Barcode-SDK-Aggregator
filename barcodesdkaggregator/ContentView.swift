@@ -74,12 +74,17 @@ struct ContentView: View {
     }
     
     func decode() async{
+        let startTime = Date.now.timeIntervalSince1970
         let results:NSArray = await barcodeReader.decode(image: webServer.currentImage)
-        print(results.count)
+        let endTime = Date.now.timeIntervalSince1970
         if results.count>0{
-            let result: NSDictionary = results[0] as! NSDictionary
-            print(result["barcodeText"] ?? "")
-            let json = JSON(results)
+            //let result: NSDictionary = results[0] as! NSDictionary
+            //print(result["barcodeText"]
+            let elapsedTime = Int((endTime - startTime)*1000)
+            let dictionary = NSMutableDictionary()
+            dictionary["results"] = results
+            dictionary["elapsedTime"] = elapsedTime
+            let json = JSON(dictionary)
             let representation = json.rawString(options: [])
             DispatchQueue.main.async {
                 webServer.resultsString = representation ?? ""
