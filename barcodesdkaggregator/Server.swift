@@ -20,21 +20,31 @@ class Server:ObservableObject{
             return GCDWebServerDataResponse(html:"<html><body><p>Hello World</p></body></html>")
         }
         webServer.addDefaultHandler(forMethod: "POST", request: GCDWebServerDataRequest.self, asyncProcessBlock: {request,completion  in
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
+            DispatchQueue.main.async() {
                 let get = request as! GCDWebServerDataRequest
                 do{
                     let json = try JSON(data: get.data)
+                    let sdk = json["sdk"].rawString() ?? "MLKit"
+                    if sdk != self.barcodeReader.name{
+                        self.barcodeReader.switchSDK(name: sdk)
+                    }
                     let imageBase64 = json["base64"]
-                    print(imageBase64)
                     print(self.barcodeReader.name)
                     let imageData = Data(base64Encoded: imageBase64.rawString() ?? "", options: .ignoreUnknownCharacters)
                     self.currentImage = UIImage(data: imageData!)!
                     Task() {
                         do {
+                            let startTime = Date.now.timeIntervalSince1970
                             let results = await self.barcodeReader.decode(image: self.currentImage)
-                            let json2 = JSON(results)
+                            let endTime = Date.now.timeIntervalSince1970
+                            
+                            let elapsedTime = Int((endTime - startTime)*1000)
+                            let dictionary = NSMutableDictionary()
+                            dictionary["results"] = results
+                            dictionary["elapsedTime"] = elapsedTime
+                            let json2 = JSON(dictionary)
                             self.resultsString = json2.rawString(options: []) ?? ""
-                            completion(GCDWebServerDataResponse(jsonObject: results))
+                            completion(GCDWebServerDataResponse(text: self.resultsString))
                         }
                     }
                 } catch{
