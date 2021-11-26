@@ -27,7 +27,7 @@ class Aggregator:ObservableObject {
         }else if name == "AppleVision" {
             barcodeReader = AppleVision()
         }else if name == "Scandit" {
-            barcodeReader = Scandit()
+            barcodeReader = Scandit(useMatrixScan: true)
         }
         self.name = name
     }
