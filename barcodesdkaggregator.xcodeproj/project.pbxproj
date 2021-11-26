@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE0B7A402750713D003D0BE5 /* Scandit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B7A3F2750713D003D0BE5 /* Scandit.swift */; };
 		BE565523274F608C006A6DB5 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE565522274F608C006A6DB5 /* Server.swift */; };
 		BECEDB68274DDC8D003A8578 /* Aggregator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECEDB67274DDC8D003A8578 /* Aggregator.swift */; };
 		BECEDB6A274DDE40003A8578 /* DBR.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECEDB69274DDE40003A8578 /* DBR.swift */; };
@@ -24,6 +25,7 @@
 		88024473C72C048497CFCE79 /* Pods-barcodesdkaggregator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-barcodesdkaggregator.debug.xcconfig"; path = "Target Support Files/Pods-barcodesdkaggregator/Pods-barcodesdkaggregator.debug.xcconfig"; sourceTree = "<group>"; };
 		8D927D8FBF903CBAD3320B87 /* Pods-barcodesdkaggregator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-barcodesdkaggregator.release.xcconfig"; path = "Target Support Files/Pods-barcodesdkaggregator/Pods-barcodesdkaggregator.release.xcconfig"; sourceTree = "<group>"; };
 		BC0D5CB3D0F2DECAC588DD23 /* Pods_barcodesdkaggregator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_barcodesdkaggregator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0B7A3F2750713D003D0BE5 /* Scandit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scandit.swift; sourceTree = "<group>"; };
 		BE565522274F608C006A6DB5 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		BECEDB67274DDC8D003A8578 /* Aggregator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aggregator.swift; sourceTree = "<group>"; };
 		BECEDB69274DDE40003A8578 /* DBR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBR.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				BECEDB71274E00A9003A8578 /* MLKit.swift */,
 				BECEDB73274E09B1003A8578 /* AppleVision.swift */,
 				BE565522274F608C006A6DB5 /* Server.swift */,
+				BE0B7A3F2750713D003D0BE5 /* Scandit.swift */,
 			);
 			path = barcodesdkaggregator;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 			files = (
 				BECEDB6A274DDE40003A8578 /* DBR.swift in Sources */,
 				BECEDB72274E00A9003A8578 /* MLKit.swift in Sources */,
+				BE0B7A402750713D003D0BE5 /* Scandit.swift in Sources */,
 				BECEDB68274DDC8D003A8578 /* Aggregator.swift in Sources */,
 				BECEDB70274DE774003A8578 /* Reader.swift in Sources */,
 				BEE61DB0274CE6E800F619B7 /* ContentView.swift in Sources */,

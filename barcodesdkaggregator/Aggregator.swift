@@ -14,6 +14,7 @@ class Aggregator:ObservableObject {
     public static let dbr:String = "DBR"
     public static let mlKit:String = "MLKit"
     public static let appleVision:String = "AppleVision"
+    public static let scandit:String = "Scandit"
     init(name:String) {
         switchSDK(name: name)
     }
@@ -25,6 +26,8 @@ class Aggregator:ObservableObject {
             barcodeReader = MLKit()
         }else if name == "AppleVision" {
             barcodeReader = AppleVision()
+        }else if name == "Scandit" {
+            barcodeReader = Scandit()
         }
         self.name = name
     }

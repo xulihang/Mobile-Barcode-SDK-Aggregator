@@ -25,6 +25,7 @@ struct ContentView: View {
                     Text("DBR").tag(Aggregator.dbr)
                     Text("Apple Vision").tag(Aggregator.appleVision)
                     Text("MLKit").tag(Aggregator.mlKit)
+                    Text("Scandit").tag(Aggregator.scandit)
                 }.onChange(of: selectedSDK) { newValue in
                     switchSDK()
                 }

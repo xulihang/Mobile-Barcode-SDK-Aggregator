@@ -10,4 +10,5 @@ target 'barcodesdkaggregator' do
   pod 'GoogleMLKit/BarcodeScanning', '2.3.0'
   pod 'SwiftyJSON', '~> 4.0'
   pod "GCDWebServer", "~> 3.0"
+  pod 'ScanditBarcodeCapture'
 end

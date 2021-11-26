@@ -60,12 +60,16 @@ PODS:
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
   - Protobuf (3.19.1)
+  - ScanditBarcodeCapture (6.10.1):
+    - ScanditCaptureCore (= 6.10.1)
+  - ScanditCaptureCore (6.10.1)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - DynamsoftBarcodeReader
   - GCDWebServer (~> 3.0)
   - GoogleMLKit/BarcodeScanning (= 2.3.0)
+  - ScanditBarcodeCapture
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
@@ -85,6 +89,8 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - Protobuf
+    - ScanditBarcodeCapture
+    - ScanditCaptureCore
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -103,8 +109,10 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   Protobuf: 3724efa50cb2846d7ccebc8691c574e85fd74471
+  ScanditBarcodeCapture: 0fa7f9e6ad8545d9eba63d849ba74106f6db82b2
+  ScanditCaptureCore: d2f78d96b897f898364bdd720b30b8649d84dc53
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: b7737b06fdf759351f70585cbeeafa2ad9922fcb
+PODFILE CHECKSUM: 0bbe6e23a3f47c6ae1cfac9425e98c206517220b
 
 COCOAPODS: 1.11.2
