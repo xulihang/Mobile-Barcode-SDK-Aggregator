@@ -52,7 +52,6 @@ struct ContentView: View {
             Image(uiImage: webServer.currentImage)
                 .resizable()
                 .aspectRatio((webServer.currentImage).size, contentMode: .fit)
-                .onAppear(perform: fetchRemoteImage)
             ScrollView(.vertical) {
                 Text(webServer.resultsString)
             }

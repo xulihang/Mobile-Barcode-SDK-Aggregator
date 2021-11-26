@@ -12,7 +12,7 @@ import SwiftyJSON
 class Server:ObservableObject{
     private var webServer:GCDWebServer
     private var barcodeReader:Aggregator! = nil
-    @Published var currentImage:UIImage = UIImage(named: "dynamsoft")!
+    @Published var currentImage:UIImage = UIImage(named: "DMX1a")!
     @Published var resultsString:String = ""
     init(){
         webServer = GCDWebServer()
