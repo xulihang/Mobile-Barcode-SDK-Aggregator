@@ -32,8 +32,11 @@ class ZXing:Reader{
                     let subDic = NSMutableDictionary()
                     subDic.setObject(_result.text ?? "", forKey: "barcodeText" as NSCopying)
                     subDic.setObject(_result.barcodeFormat.rawValue, forKey: "barcodeFormat" as NSCopying)
-                    addBoundingBox(subDic: subDic, resultPoints: points as! [ZXResultPoint])
-                    outResults.add(subDic)
+
+                    let added = addBoundingBox(subDic: subDic, resultPoints: points as! [ZXResultPoint])
+                    if added == true {
+                        outResults.add(subDic)
+                    }
                 }
             }
         } catch{
@@ -42,24 +45,38 @@ class ZXing:Reader{
         return outResults
     }
     
-    func addBoundingBox(subDic:NSMutableDictionary,resultPoints:[ZXResultPoint]){
-        var minX = Int(resultPoints[0].x)
-        var minY = Int(resultPoints[0].y)
-        var maxX = 0
-        var maxY = 0
-        for point in resultPoints {
-            minX = min(minX, Int(point.x))
-            minY = min(minY, Int(point.y))
-            maxX = max(maxX, Int(point.x))
-            maxY = max(maxX, Int(point.x))
+    func addBoundingBox(subDic:NSMutableDictionary,resultPoints:[AnyObject]) -> Bool{
+        if resultPoints.count>0 {
+            
+            if resultPoints[0].isEqual(NSNull()) {
+                return false
+            }
+            let firstPoint:ZXResultPoint = resultPoints[0] as! ZXResultPoint
+            var minX = Int(firstPoint.x)
+            var minY = Int(firstPoint.y)
+            var maxX = 0
+            var maxY = 0
+            for obj in resultPoints {
+                if obj.isEqual(NSNull()) {
+                    return false
+                }
+                let point:ZXResultPoint = obj as! ZXResultPoint
+                minX = min(minX, Int(point.x))
+                minY = min(minY, Int(point.y))
+                maxX = max(maxX, Int(point.x))
+                maxY = max(maxX, Int(point.x))
+            }
+            subDic.setObject(minX, forKey: "x1" as NSCopying)
+            subDic.setObject(minY, forKey: "y1" as NSCopying)
+            subDic.setObject(maxX, forKey: "x2" as NSCopying)
+            subDic.setObject(minY, forKey: "y2" as NSCopying)
+            subDic.setObject(maxX, forKey: "x3" as NSCopying)
+            subDic.setObject(maxY, forKey: "y3" as NSCopying)
+            subDic.setObject(minX, forKey: "x4" as NSCopying)
+            subDic.setObject(maxY, forKey: "y4" as NSCopying)
+            return true
+        } else {
+            return false
         }
-        subDic.setObject(minX, forKey: "x1" as NSCopying)
-        subDic.setObject(minY, forKey: "y1" as NSCopying)
-        subDic.setObject(maxX, forKey: "x2" as NSCopying)
-        subDic.setObject(minY, forKey: "y2" as NSCopying)
-        subDic.setObject(maxX, forKey: "x3" as NSCopying)
-        subDic.setObject(maxY, forKey: "y3" as NSCopying)
-        subDic.setObject(minX, forKey: "x4" as NSCopying)
-        subDic.setObject(maxY, forKey: "y4" as NSCopying)
     }
 }
