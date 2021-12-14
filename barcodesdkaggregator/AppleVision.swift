@@ -23,8 +23,8 @@ class AppleVision:Reader{
         //    }
         //}
         
-        let requestHandler = VNImageRequestHandler(cgImage: image.cgImage!, orientation: CGImagePropertyOrientationForUIImageOrientation(uiOrientation: image.imageOrientation))
-        
+        //let requestHandler = VNImageRequestHandler(cgImage: image.cgImage!, orientation: CGImagePropertyOrientationForUIImageOrientation(uiOrientation: image.imageOrientation))
+        let requestHandler = VNImageRequestHandler(cgImage: image.cgImage!, orientation: CGImagePropertyOrientation.downMirrored)
         let barcodeRequest = VNDetectBarcodesRequest()
         barcodeRequest.symbologies = [.pdf417]
         do {
@@ -44,16 +44,20 @@ class AppleVision:Reader{
         for result in results{
             let subDic = NSMutableDictionary()
             
+            let minY = result.boundingBox.minY * height
+            let minX = result.boundingBox.minX * width
+            let maxY = result.boundingBox.maxY * height
+            let maxX = result.boundingBox.maxX * width
             subDic.setObject(result.payloadStringValue ?? "", forKey: "barcodeText" as NSCopying)
             subDic.setObject(result.symbology, forKey: "barcodeFormat" as NSCopying)
-            subDic.setObject(Int(result.topLeft.x*width), forKey: "x1" as NSCopying)
-            subDic.setObject(Int(result.topLeft.y*height), forKey: "y1" as NSCopying)
-            subDic.setObject(Int(result.topRight.x*width), forKey: "x2" as NSCopying)
-            subDic.setObject(Int(result.topRight.y*height), forKey: "y2" as NSCopying)
-            subDic.setObject(Int(result.bottomRight.x*width), forKey: "x3" as NSCopying)
-            subDic.setObject(Int(result.bottomRight.y*height), forKey: "y3" as NSCopying)
-            subDic.setObject(Int(result.bottomLeft.x*width), forKey: "x4" as NSCopying)
-            subDic.setObject(Int(result.bottomLeft.y*height), forKey: "y4" as NSCopying)
+            subDic.setObject(minX, forKey: "x1" as NSCopying)
+            subDic.setObject(minY, forKey: "y1" as NSCopying)
+            subDic.setObject(maxX, forKey: "x2" as NSCopying)
+            subDic.setObject(minY, forKey: "y2" as NSCopying)
+            subDic.setObject(maxX, forKey: "x3" as NSCopying)
+            subDic.setObject(maxY, forKey: "y3" as NSCopying)
+            subDic.setObject(minX, forKey: "x4" as NSCopying)
+            subDic.setObject(maxY, forKey: "y4" as NSCopying)
             outResults.add(subDic)
         }
         return outResults
