@@ -10,8 +10,14 @@ import DynamsoftBarcodeReader
 
 class DBR:Reader {
     private var barcodeReader: DynamsoftBarcodeReader! = nil
+    private var template: String = ""
     init() {
         barcodeReader = DynamsoftBarcodeReader.init(license: "t0068NQAAAABqtDczOvXnHchYhEDwihE9AlhgUoufsIS8/fvgiSB9oU4x8Q4zTN47N7ksSXWCH8bfFREbMklPNnt39BdcfSo=")
+        let settings = try? barcodeReader.getRuntimeSettings()
+        settings!.barcodeFormatIds = EnumBarcodeFormat.PDF417.rawValue
+        var error:NSError? = NSError()
+        barcodeReader.update(settings!, error: &error)
+        print("updated")
     }
     
     func decode(image:UIImage) async ->NSArray{
@@ -39,5 +45,15 @@ class DBR:Reader {
             print(error)
         }
         return outResults
+    }
+    
+    func updateRuntimeSettingsWithTemplate(template:String){
+        if template != self.template{
+            print("template")
+            var error:NSError? = NSError()
+            self.template = template
+            barcodeReader.initRuntimeSettings(with: template, conflictMode: EnumConflictMode.overwrite, error: &error)
+            print(template)
+        }
     }
 }

@@ -25,6 +25,12 @@ class Server:ObservableObject{
                 do{
                     let json = try JSON(data: get.data)
                     let sdk = json["sdk"].rawString() ?? "MLKit"
+                    let template = json["sdk"].rawString() ?? ""
+                    if template != "" {
+                        if self.barcodeReader.name == Aggregator.dbr{
+                            self.barcodeReader.updateDBRSettings(template: template)
+                        }
+                    }
                     if sdk != self.barcodeReader.name{
                         self.barcodeReader.switchSDK(name: sdk)
                     }

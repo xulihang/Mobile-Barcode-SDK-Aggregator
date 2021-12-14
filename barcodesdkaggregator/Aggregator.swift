@@ -35,6 +35,11 @@ class Aggregator:ObservableObject {
         self.name = name
     }
     
+    func updateDBRSettings(template:String){
+        let reader:DBR = barcodeReader as! DBR
+        reader.updateRuntimeSettingsWithTemplate(template: template)
+    }
+    
     func decode(image:UIImage) async ->NSArray{
         return await barcodeReader!.decode(image:image)
     }
