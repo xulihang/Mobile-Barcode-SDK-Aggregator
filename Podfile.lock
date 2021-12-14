@@ -64,6 +64,9 @@ PODS:
     - ScanditCaptureCore (= 6.10.1)
   - ScanditCaptureCore (6.10.1)
   - SwiftyJSON (4.3.0)
+  - ZXingObjC (3.6.5):
+    - ZXingObjC/All (= 3.6.5)
+  - ZXingObjC/All (3.6.5)
 
 DEPENDENCIES:
   - DynamsoftBarcodeReader
@@ -71,6 +74,7 @@ DEPENDENCIES:
   - GoogleMLKit/BarcodeScanning (= 2.3.0)
   - ScanditBarcodeCapture
   - SwiftyJSON (~> 4.0)
+  - ZXingObjC (~> 3.6.4)
 
 SPEC REPOS:
   trunk:
@@ -92,6 +96,7 @@ SPEC REPOS:
     - ScanditBarcodeCapture
     - ScanditCaptureCore
     - SwiftyJSON
+    - ZXingObjC
 
 SPEC CHECKSUMS:
   DynamsoftBarcodeReader: dd892674fbacf343dece2297dd795891340e9c55
@@ -112,7 +117,8 @@ SPEC CHECKSUMS:
   ScanditBarcodeCapture: 0fa7f9e6ad8545d9eba63d849ba74106f6db82b2
   ScanditCaptureCore: d2f78d96b897f898364bdd720b30b8649d84dc53
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  ZXingObjC: fdbb269f25dd2032da343e06f10224d62f537bdb
 
-PODFILE CHECKSUM: 0bbe6e23a3f47c6ae1cfac9425e98c206517220b
+PODFILE CHECKSUM: dd79103de7f93e43a4568a3619967332a7cb0e0c
 
 COCOAPODS: 1.11.2

@@ -13,7 +13,7 @@ struct ContentView: View {
     @ObservedObject private var webServer:Server = Server()
     @State var status = "Not connected."
     @State private var selectedSDK = Aggregator.mlKit
-    @State var currentImageURL = "http://192.168.8.65:5111/session/abc7b55641cf11eca240e84e068e29b8/image/QR1a.jpg"
+    @State var currentImageURL = "http://192.168.8.65:5111/session/d80ce7ad5ca311ecbabae84e068e29b8/image/barcode%20(5).jpg"
     @State private var showAlert = false
     var body: some View {
         Spacer()
@@ -26,6 +26,7 @@ struct ContentView: View {
                     Text("Apple Vision").tag(Aggregator.appleVision)
                     Text("MLKit").tag(Aggregator.mlKit)
                     Text("Scandit").tag(Aggregator.scandit)
+                    Text("ZXing").tag(Aggregator.zxing)
                 }.onChange(of: selectedSDK) { newValue in
                     switchSDK()
                 }

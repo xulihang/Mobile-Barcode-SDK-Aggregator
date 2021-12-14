@@ -11,9 +11,7 @@ import DynamsoftBarcodeReader
 class DBR:Reader {
     private var barcodeReader: DynamsoftBarcodeReader! = nil
     init() {
-        let dls = iDMDLSConnectionParameters()
-        dls.organizationID = "200001"
-        barcodeReader = DynamsoftBarcodeReader(licenseFromDLS: dls, verificationDelegate: self)
+        barcodeReader = DynamsoftBarcodeReader.init(license: "t0068NQAAAABqtDczOvXnHchYhEDwihE9AlhgUoufsIS8/fvgiSB9oU4x8Q4zTN47N7ksSXWCH8bfFREbMklPNnt39BdcfSo=")
     }
     
     func decode(image:UIImage) async ->NSArray{
@@ -27,13 +25,13 @@ class DBR:Reader {
                 subDic.setObject(result.barcodeText ?? "", forKey: "barcodeText" as NSCopying)
                 subDic.setObject(result.barcodeFormatString ?? "", forKey: "barcodeFormat" as NSCopying)
                 subDic.setObject(Int(points[0].x), forKey: "x1" as NSCopying)
-                subDic.setObject(Int(points[0].x), forKey: "y1" as NSCopying)
+                subDic.setObject(Int(points[0].y), forKey: "y1" as NSCopying)
                 subDic.setObject(Int(points[1].x), forKey: "x2" as NSCopying)
-                subDic.setObject(Int(points[1].x), forKey: "y2" as NSCopying)
+                subDic.setObject(Int(points[1].y), forKey: "y2" as NSCopying)
                 subDic.setObject(Int(points[2].x), forKey: "x3" as NSCopying)
-                subDic.setObject(Int(points[2].x), forKey: "y3" as NSCopying)
+                subDic.setObject(Int(points[2].y), forKey: "y3" as NSCopying)
                 subDic.setObject(Int(points[3].x), forKey: "x4" as NSCopying)
-                subDic.setObject(Int(points[3].x), forKey: "y4" as NSCopying)
+                subDic.setObject(Int(points[3].y), forKey: "y4" as NSCopying)
                 outResults.add(subDic)
             }
             

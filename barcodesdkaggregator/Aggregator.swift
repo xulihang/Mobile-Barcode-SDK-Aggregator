@@ -15,19 +15,22 @@ class Aggregator:ObservableObject {
     public static let mlKit:String = "MLKit"
     public static let appleVision:String = "AppleVision"
     public static let scandit:String = "Scandit"
+    public static let zxing:String = "ZXing"
     init(name:String) {
         switchSDK(name: name)
     }
     
     func switchSDK(name:String){
-        if name == "DBR"{
+        if name == Aggregator.dbr{
             barcodeReader = DBR()
-        }else if name == "MLKit" {
+        }else if name == Aggregator.mlKit {
             barcodeReader = MLKit()
-        }else if name == "AppleVision" {
+        }else if name == Aggregator.appleVision {
             barcodeReader = AppleVision()
-        }else if name == "Scandit" {
+        }else if name == Aggregator.scandit {
             barcodeReader = Scandit(useMatrixScan: true)
+        }else if name == Aggregator.zxing {
+            barcodeReader = ZXing()
         }
         self.name = name
     }

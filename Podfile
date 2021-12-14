@@ -11,4 +11,5 @@ target 'barcodesdkaggregator' do
   pod 'SwiftyJSON', '~> 4.0'
   pod "GCDWebServer", "~> 3.0"
   pod 'ScanditBarcodeCapture'
+  pod 'ZXingObjC', '~> 3.6.4'
 end

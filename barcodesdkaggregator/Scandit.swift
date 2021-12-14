@@ -33,7 +33,7 @@ class Scandit:Reader{
             settings.set(symbology: .dataMatrix, enabled: true)
             //settings.set(symbology: .code128, enabled: true)
             //settings.set(symbology: .code39, enabled: true)
-            //settings.set(symbology: .qr, enabled: true)
+            settings.set(symbology: .qr, enabled: true)
             //settings.set(symbology: .ean8, enabled: true)
             //settings.set(symbology: .upce, enabled: true)
             //settings.set(symbology: .ean13UPCA, enabled: true)
