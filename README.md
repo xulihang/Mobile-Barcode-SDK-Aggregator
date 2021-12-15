@@ -8,3 +8,4 @@ Supported SDKs:
 2. [Google ML Kit](https://developers.google.com/ml-kit/)
 3. [Apple Vision Framework](https://developer.apple.com/documentation/vision)
 4. [Scandit](https://docs.scandit.com/data-capture-sdk/ios/index.html)
+5. [ZXing Objective-C](https://github.com/zxingify/zxingify-objc)
