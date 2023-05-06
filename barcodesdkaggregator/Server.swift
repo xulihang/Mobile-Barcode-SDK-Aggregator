@@ -51,7 +51,11 @@ class Server:ObservableObject{
                             dictionary["elapsedTime"] = elapsedTime
                             let json2 = JSON(dictionary)
                             self.resultsString = json2.rawString(options: []) ?? ""
-                            completion(GCDWebServerDataResponse(text: self.resultsString))
+                            let response = GCDWebServerDataResponse(text:self.resultsString)
+                            response?.setValue("*", forAdditionalHeader: "Access-Control-Allow-Origin")
+                            response?.setValue("*", forAdditionalHeader: "Access-Control-Allow-Headers")
+                            response?.setValue("*", forAdditionalHeader: "Access-Control-Allow-Methods")
+                            completion(response)
                         }
                     }
                 } catch{
