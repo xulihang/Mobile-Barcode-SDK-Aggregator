@@ -29,6 +29,7 @@ class DBR:Reader {
                 let subDic = NSMutableDictionary()
                 subDic.setObject(result.barcodeText ?? "", forKey: "barcodeText" as NSCopying)
                 subDic.setObject(result.barcodeFormatString ?? "", forKey: "barcodeFormat" as NSCopying)
+                subDic.setObject(result.barcodeBytes?.base64EncodedString() ?? "", forKey: "barcodeBytes" as NSCopying)
                 subDic.setObject(Int(points[0].x), forKey: "x1" as NSCopying)
                 subDic.setObject(Int(points[0].y), forKey: "y1" as NSCopying)
                 subDic.setObject(Int(points[1].x), forKey: "x2" as NSCopying)
@@ -49,6 +50,7 @@ class DBR:Reader {
     func updateRuntimeSettingsWithTemplate(template:String){
         if template != self.template{
             print("template")
+            print(template)
             self.template = template
             try? barcodeReader.initRuntimeSettingsWithString(template, conflictMode: EnumConflictMode.overwrite)
             print(template)

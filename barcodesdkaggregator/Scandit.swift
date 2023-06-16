@@ -61,6 +61,7 @@ class Scandit:Reader{
             for barcode in decodingResults.recognizedBarcodes{
                 let subDic = NSMutableDictionary()
                 subDic.setObject(barcode.data ?? "", forKey: "barcodeText" as NSCopying)
+                subDic.setObject(barcode.rawData.base64EncodedString() ?? "", forKey: "barcodeBytes" as NSCopying)
                 subDic.setObject(barcode.symbology.description, forKey: "barcodeFormat" as NSCopying)
                 subDic.setObject(barcode.location.topLeft.x, forKey: "x1" as NSCopying)
                 subDic.setObject(barcode.location.topLeft.y, forKey: "y1" as NSCopying)

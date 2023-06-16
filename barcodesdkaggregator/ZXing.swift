@@ -32,6 +32,7 @@ class ZXing:Reader{
                     let subDic = NSMutableDictionary()
                     subDic.setObject(_result.text ?? "", forKey: "barcodeText" as NSCopying)
                     subDic.setObject(_result.barcodeFormat.rawValue, forKey: "barcodeFormat" as NSCopying)
+                    subDic.setObject(getBase64FromBytesArray(result:_result), forKey: "barcodeBytes" as NSCopying)
 
                     let added = addBoundingBox(subDic: subDic, resultPoints: points as! [ZXResultPoint])
                     if added == true {
@@ -43,6 +44,18 @@ class ZXing:Reader{
             print(error)
         }
         return outResults
+    }
+    
+    func getBase64FromBytesArray(result:ZXResult) -> String {
+        if result.rawBytes != nil {
+            let bytes = result.rawBytes
+            for index in 0...bytes!.length {
+                print(bytes!.array[Int(index)])
+            }
+        }else{
+            print("bytes is empty")
+        }
+        return ""
     }
     
     func addBoundingBox(subDic:NSMutableDictionary,resultPoints:[AnyObject]) -> Bool{
@@ -64,7 +77,7 @@ class ZXing:Reader{
                 minX = min(minX, Int(point.x))
                 minY = min(minY, Int(point.y))
                 maxX = max(maxX, Int(point.x))
-                maxY = max(maxX, Int(point.x))
+                maxY = max(maxY, Int(point.y))
             }
             subDic.setObject(minX, forKey: "x1" as NSCopying)
             subDic.setObject(minY, forKey: "y1" as NSCopying)

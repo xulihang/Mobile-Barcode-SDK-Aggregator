@@ -50,6 +50,7 @@ class AppleVision:Reader{
             let maxX = result.boundingBox.maxX * width
             subDic.setObject(result.payloadStringValue ?? "", forKey: "barcodeText" as NSCopying)
             subDic.setObject(result.symbology, forKey: "barcodeFormat" as NSCopying)
+            subDic.setObject("", forKey: "barcodeBytes" as NSCopying) //https://developer.apple.com/documentation/vision/vnbarcodeobservation/4183553-payloaddata?language=objc only available on macOS 14.0, iOS 17.0
             subDic.setObject(minX, forKey: "x1" as NSCopying)
             subDic.setObject(minY, forKey: "y1" as NSCopying)
             subDic.setObject(maxX, forKey: "x2" as NSCopying)
