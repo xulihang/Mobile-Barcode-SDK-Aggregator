@@ -8,15 +8,26 @@
 import Foundation
 import DynamsoftBarcodeReader
 
-class DBR:Reader {
+class DBR:Reader  {
     private var barcodeReader: DynamsoftBarcodeReader! = nil
     private var template: String = ""
     init() {
-        barcodeReader = DynamsoftBarcodeReader.init(license: "DLS2eyJoYW5kc2hha2VDb2RlIjoiMTAwMjI3NzYzLVRYbE5iMkpwYkdWUWNtOXFYMlJpY2ciLCJtYWluU2VydmVyVVJMIjoiaHR0cHM6Ly9tbHRzLmR5bmFtc29mdC5jb20iLCJvcmdhbml6YXRpb25JRCI6IjEwMDIyNzc2MyIsImNoZWNrQ29kZSI6MTcyNTc5NTA5OX0=")
+        let initializer = DBRLicenseInitializer()
+        initializer.initLicense(license: "DLS2eyJoYW5kc2hha2VDb2RlIjoiMTAwMjI3NzYzLVRYbE5iMkpwYkdWUWNtOXFYMlJpY2ciLCJtYWluU2VydmVyVVJMIjoiaHR0cHM6Ly9tbHRzLmR5bmFtc29mdC5jb20iLCJvcmdhbml6YXRpb25JRCI6IjEwMDIyNzc2MyIsImNoZWNrQ29kZSI6MTcyNTc5NTA5OX0=")
+        barcodeReader = DynamsoftBarcodeReader()
         let settings = try? barcodeReader.getRuntimeSettings()
+        settings!.expectedBarcodesCount = 999
+        settings!.scaleDownThreshold = 9999
         settings!.barcodeFormatIds = EnumBarcodeFormat.PDF417.rawValue
         try? barcodeReader.updateRuntimeSettings(settings!)
         print("updated")
+    }
+    
+    public func dbrLicenseVerificationCallback(_ isSuccess: Bool, error: Error?) {
+        let err = error as NSError?
+        if(err != nil){
+            print("Server DBR license verify failed")
+        }
     }
     
     func decode(image:UIImage) async ->NSArray{

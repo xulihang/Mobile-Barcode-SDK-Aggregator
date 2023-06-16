@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BE0B7A402750713D003D0BE5 /* Scandit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B7A3F2750713D003D0BE5 /* Scandit.swift */; };
+		BE2E294C2A3C37DD0087D794 /* DBRLicenseInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2E294B2A3C37DD0087D794 /* DBRLicenseInitializer.swift */; };
 		BE408BD3276845BD0087F717 /* ZXing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE408BD2276845BD0087F717 /* ZXing.swift */; };
 		BE565523274F608C006A6DB5 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE565522274F608C006A6DB5 /* Server.swift */; };
 		BECEDB68274DDC8D003A8578 /* Aggregator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECEDB67274DDC8D003A8578 /* Aggregator.swift */; };
@@ -28,6 +29,7 @@
 		BC0D5CB3D0F2DECAC588DD23 /* Pods_barcodesdkaggregator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_barcodesdkaggregator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0B7A3F2750713D003D0BE5 /* Scandit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scandit.swift; sourceTree = "<group>"; };
 		BE0B7A412750CA0E003D0BE5 /* barcodesdkaggregator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = barcodesdkaggregator.entitlements; sourceTree = "<group>"; };
+		BE2E294B2A3C37DD0087D794 /* DBRLicenseInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBRLicenseInitializer.swift; sourceTree = "<group>"; };
 		BE408BD2276845BD0087F717 /* ZXing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXing.swift; sourceTree = "<group>"; };
 		BE565522274F608C006A6DB5 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		BECEDB67274DDC8D003A8578 /* Aggregator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aggregator.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				BE565522274F608C006A6DB5 /* Server.swift */,
 				BE0B7A3F2750713D003D0BE5 /* Scandit.swift */,
 				BE408BD2276845BD0087F717 /* ZXing.swift */,
+				BE2E294B2A3C37DD0087D794 /* DBRLicenseInitializer.swift */,
 			);
 			path = barcodesdkaggregator;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				BECEDB6A274DDE40003A8578 /* DBR.swift in Sources */,
 				BECEDB72274E00A9003A8578 /* MLKit.swift in Sources */,
 				BE0B7A402750713D003D0BE5 /* Scandit.swift in Sources */,
+				BE2E294C2A3C37DD0087D794 /* DBRLicenseInitializer.swift in Sources */,
 				BECEDB68274DDC8D003A8578 /* Aggregator.swift in Sources */,
 				BECEDB70274DE774003A8578 /* Reader.swift in Sources */,
 				BEE61DB0274CE6E800F619B7 /* ContentView.swift in Sources */,
