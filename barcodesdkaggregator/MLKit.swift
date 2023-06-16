@@ -54,6 +54,8 @@ class MLKit:Reader{
             format = "QRCODE"
         } else if rawValue == BarcodeFormat.EAN13.rawValue {
             format = "EAN13"
+        } else if rawValue == BarcodeFormat.PDF417.rawValue {
+            format = "PDF417"
         }
         return format
                 

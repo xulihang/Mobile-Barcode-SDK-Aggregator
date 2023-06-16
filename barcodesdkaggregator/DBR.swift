@@ -12,18 +12,17 @@ class DBR:Reader {
     private var barcodeReader: DynamsoftBarcodeReader! = nil
     private var template: String = ""
     init() {
-        barcodeReader = DynamsoftBarcodeReader.init(license: "t0068NQAAAABqtDczOvXnHchYhEDwihE9AlhgUoufsIS8/fvgiSB9oU4x8Q4zTN47N7ksSXWCH8bfFREbMklPNnt39BdcfSo=")
+        barcodeReader = DynamsoftBarcodeReader.init(license: "DLS2eyJoYW5kc2hha2VDb2RlIjoiMTAwMjI3NzYzLVRYbE5iMkpwYkdWUWNtOXFYMlJpY2ciLCJtYWluU2VydmVyVVJMIjoiaHR0cHM6Ly9tbHRzLmR5bmFtc29mdC5jb20iLCJvcmdhbml6YXRpb25JRCI6IjEwMDIyNzc2MyIsImNoZWNrQ29kZSI6MTcyNTc5NTA5OX0=")
         let settings = try? barcodeReader.getRuntimeSettings()
         settings!.barcodeFormatIds = EnumBarcodeFormat.PDF417.rawValue
-        var error:NSError? = NSError()
-        barcodeReader.update(settings!, error: &error)
+        try? barcodeReader.updateRuntimeSettings(settings!)
         print("updated")
     }
     
     func decode(image:UIImage) async ->NSArray{
         let outResults = NSMutableArray()
         do{
-            let results = try barcodeReader.decode(image, withTemplate: "")
+            let results = try barcodeReader.decodeImage(image)
             print(results.count)
             for result in results {
                 let points = result.localizationResult?.resultPoints as! [CGPoint]
@@ -50,9 +49,8 @@ class DBR:Reader {
     func updateRuntimeSettingsWithTemplate(template:String){
         if template != self.template{
             print("template")
-            var error:NSError? = NSError()
             self.template = template
-            barcodeReader.initRuntimeSettings(with: template, conflictMode: EnumConflictMode.overwrite, error: &error)
+            try? barcodeReader.initRuntimeSettingsWithString(template, conflictMode: EnumConflictMode.overwrite)
             print(template)
         }
     }

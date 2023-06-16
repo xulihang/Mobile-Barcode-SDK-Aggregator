@@ -1,17 +1,17 @@
 PODS:
-  - DynamsoftBarcodeReader (8.8.0)
+  - DynamsoftBarcodeReader (9.6.21)
   - GCDWebServer (3.5.4):
     - GCDWebServer/Core (= 3.5.4)
   - GCDWebServer/Core (3.5.4)
-  - GoogleDataTransport (9.1.2):
-    - GoogleUtilities/Environment (~> 7.2)
-    - nanopb (~> 2.30908.0)
+  - GoogleDataTransport (9.2.3):
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleMLKit/BarcodeScanning (2.3.0):
+  - GoogleMLKit/BarcodeScanning (3.2.0):
     - GoogleMLKit/MLKitCore
-    - MLKitBarcodeScanning (~> 1.4.0)
-  - GoogleMLKit/MLKitCore (2.3.0):
-    - MLKitCommon (~> 3.1.0)
+    - MLKitBarcodeScanning (~> 2.2.0)
+  - GoogleMLKit/MLKitCore (3.2.0):
+    - MLKitCommon (~> 8.0.0)
   - GoogleToolboxForMac/DebugUtils (2.3.2):
     - GoogleToolboxForMac/Defines (= 2.3.2)
   - GoogleToolboxForMac/Defines (2.3.2)
@@ -24,20 +24,20 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.3.2)
     - "GoogleToolboxForMac/NSString+URLArguments (= 2.3.2)"
   - "GoogleToolboxForMac/NSString+URLArguments (2.3.2)"
-  - GoogleUtilities/Environment (7.6.0):
+  - GoogleUtilities/Environment (7.11.1):
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUtilities/Logger (7.6.0):
+  - GoogleUtilities/Logger (7.11.1):
     - GoogleUtilities/Environment
-  - GoogleUtilities/UserDefaults (7.6.0):
+  - GoogleUtilities/UserDefaults (7.11.1):
     - GoogleUtilities/Logger
-  - GoogleUtilitiesComponents (1.0.0):
+  - GoogleUtilitiesComponents (1.1.0):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (1.7.0)
-  - MLImage (1.0.0-beta1)
-  - MLKitBarcodeScanning (1.4.0):
-    - MLKitCommon (~> 3.1)
-    - MLKitVision (~> 1.3)
-  - MLKitCommon (3.1.0):
+  - GTMSessionFetcher/Core (1.7.2)
+  - MLImage (1.0.0-beta3)
+  - MLKitBarcodeScanning (2.2.0):
+    - MLKitCommon (~> 8.0)
+    - MLKitVision (~> 4.2)
+  - MLKitCommon (8.0.0):
     - GoogleDataTransport (~> 9.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
@@ -46,33 +46,33 @@ PODS:
     - GoogleUtilitiesComponents (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
     - Protobuf (~> 3.12)
-  - MLKitVision (1.3.0):
+  - MLKitVision (4.2.0):
     - GoogleToolboxForMac/Logger (~> 2.1)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - GTMSessionFetcher/Core (~> 1.1)
-    - MLImage (= 1.0.0-beta1)
-    - MLKitCommon (~> 3.0)
+    - MLImage (= 1.0.0-beta3)
+    - MLKitCommon (~> 8.0)
     - Protobuf (~> 3.12)
-  - nanopb (2.30908.0):
-    - nanopb/decode (= 2.30908.0)
-    - nanopb/encode (= 2.30908.0)
-  - nanopb/decode (2.30908.0)
-  - nanopb/encode (2.30908.0)
-  - PromisesObjC (2.0.0)
-  - Protobuf (3.19.1)
-  - ScanditBarcodeCapture (6.10.1):
-    - ScanditCaptureCore (= 6.10.1)
-  - ScanditCaptureCore (6.10.1)
+  - nanopb (2.30909.0):
+    - nanopb/decode (= 2.30909.0)
+    - nanopb/encode (= 2.30909.0)
+  - nanopb/decode (2.30909.0)
+  - nanopb/encode (2.30909.0)
+  - PromisesObjC (2.2.0)
+  - Protobuf (3.23.3)
+  - ScanditBarcodeCapture (6.16.2):
+    - ScanditCaptureCore (= 6.16.2)
+  - ScanditCaptureCore (6.16.2)
   - SwiftyJSON (4.3.0)
   - ZXingObjC (3.6.5):
     - ZXingObjC/All (= 3.6.5)
   - ZXingObjC/All (3.6.5)
 
 DEPENDENCIES:
-  - DynamsoftBarcodeReader
+  - DynamsoftBarcodeReader (= 9.6.21)
   - GCDWebServer (~> 3.0)
-  - GoogleMLKit/BarcodeScanning (= 2.3.0)
-  - ScanditBarcodeCapture
+  - GoogleMLKit/BarcodeScanning (= 3.2.0)
+  - ScanditBarcodeCapture (= 6.16.2)
   - SwiftyJSON (~> 4.0)
   - ZXingObjC (~> 3.6.4)
 
@@ -99,26 +99,26 @@ SPEC REPOS:
     - ZXingObjC
 
 SPEC CHECKSUMS:
-  DynamsoftBarcodeReader: dd892674fbacf343dece2297dd795891340e9c55
+  DynamsoftBarcodeReader: 7544bb56f3ea940003688355267e6e32ca999030
   GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
-  GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
-  GoogleMLKit: 53d5adbee0fe5a701e970f1387d2cfececd5bc50
+  GoogleDataTransport: f0308f5905a745f94fb91fea9c6cbaf3831cb1bd
+  GoogleMLKit: 0017a6a8372e1a182139b9def4d89be5d87ca5a7
   GoogleToolboxForMac: 8bef7c7c5cf7291c687cf5354f39f9db6399ad34
-  GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
-  GoogleUtilitiesComponents: a69c0b3b369ba443e988141e75ef49d9010b1c80
-  GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
-  MLImage: 647f3d580c10b3c9a3f6154f5d7baead60c42a0c
-  MLKitBarcodeScanning: db5ca9cd47166160d70c295531436edaa12ddd50
-  MLKitCommon: 1b5c79d52f79d9cc93ab5300e9713c4c215121ea
-  MLKitVision: 26da299aef93291f24f5200e8372919f73abf3b5
-  nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
-  PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  Protobuf: 3724efa50cb2846d7ccebc8691c574e85fd74471
-  ScanditBarcodeCapture: 0fa7f9e6ad8545d9eba63d849ba74106f6db82b2
-  ScanditCaptureCore: d2f78d96b897f898364bdd720b30b8649d84dc53
+  GoogleUtilities: 9aa0ad5a7bc171f8bae016300bfcfa3fb8425749
+  GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
+  GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
+  MLImage: 489dfec109f21da8621b28d476401aaf7a0d4ff4
+  MLKitBarcodeScanning: d92fe1911001ec36870162c5a0eb206f612b7169
+  MLKitCommon: f6da6c5659618c070b50a80db01248ebe2964175
+  MLKitVision: 96c96571190b7f63eddf4a12068ce8a8689e0d2c
+  nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
+  PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
+  Protobuf: d9c3d7e5a3574aa6a5d521f2d9f733c76d294be8
+  ScanditBarcodeCapture: 9bfcc66a55d4708e0deeaa412c335809140be39a
+  ScanditCaptureCore: 4a4150e303f89cac26d0c2add1187eda9a3ffdd5
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   ZXingObjC: fdbb269f25dd2032da343e06f10224d62f537bdb
 
-PODFILE CHECKSUM: dd79103de7f93e43a4568a3619967332a7cb0e0c
+PODFILE CHECKSUM: cdc33bf9dd4742c6cd061ba3fffd56ed86c2a87c
 
 COCOAPODS: 1.11.2
